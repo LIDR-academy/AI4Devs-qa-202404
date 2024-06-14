@@ -1,0 +1,12 @@
+[
+    {
+        "candidateId": 1,
+        "fullName": "John Doe",
+        "currentInterviewStep": "Entrevista Técnica"
+    },
+    {
+        "candidateId": 2,
+        "fullName": "Jane Smith",
+        "currentInterviewStep": "Entrevista de Recursos Humanos"
+    }
+]
