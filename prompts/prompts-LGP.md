@@ -54,3 +54,6 @@ parece que la interfaz para la que tenemos que añadir las pruebas es la interfa
 15.- en 'should move candidate card to new column and update phase' debemos comprobar el arrastre de una tarjeta de candidato de una columna a otra. Vamos a usar el primer candidato que devuelve la API, detectaremos en qué columna está y lo moveremos a otra
 
 16.- Verifica que la fase del candidato se actualiza correctamente en el backend mediante el endpoint PUT /candidate/:id. Para ello tendremos que comprobar que el canditao movido tiene ahora la fase correcta
+
+
+17.- Parece que en el test 'should move candidate card to new column and update phase' no está actualizando correctamente la fase del candidato, no se mueve la tarjeta correctamente

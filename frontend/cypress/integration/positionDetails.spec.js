@@ -10,6 +10,14 @@ describe('Position Details Page', () => {
             candidatesData = response.body;
         });
         cy.visit('http://localhost:3000/positions/1');
+        cy.intercept('PUT', 'http://localhost:3010/candidates/*', (req) => {
+            req.reply((res) => {
+                res.send({
+                    ...req.body,
+                    currentInterviewStep: req.body.currentInterviewStep
+                });
+            });
+        });
     });
 
     it('should display the correct title', () => {
