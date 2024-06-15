@@ -1,9 +1,0 @@
-{
-    "interviewFlow": {
-      "positionName": "Desarrollador Frontend",
-      "interviewSteps": [
-        { "id": 1, "name": "Entrevista Técnica" },
-        { "id": 2, "name": "Entrevista de Recursos Humanos" }
-      ]
-    }
-  }
