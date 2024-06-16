@@ -45,9 +45,6 @@ describe('Position Details Page', () => {
         const initialStepIndex = positionData.interviewFlow.interviewFlow.interviewSteps.findIndex(step => step.name === candidate.currentInterviewStep);
         const newStepIndex = (initialStepIndex + 1) % positionData.interviewFlow.interviewFlow.interviewSteps.length;
         const newStep = positionData.interviewFlow.interviewFlow.interviewSteps[newStepIndex];
-        console.log('candidate', candidate)
-        console.log('initialStepIndex', initialStepIndex);
-        console.log('newStepIndex', newStepIndex);
 
         cy.get('.stage-column').eq(initialStepIndex).within(() => {
             cy.get('.card').contains(candidate.fullName).trigger('dragstart');
@@ -64,13 +61,5 @@ describe('Position Details Page', () => {
                 }
             });
         });
-
-        // cy.request('GET', `http://localhost:3010/positions/1/candidates`).then((response) => {
-        //     let updatedCandidatesData = response.body;
-        //     let updatedCandidate = updatedCandidatesData[0];
-        //     console.log(updatedCandidate);
-        //     console.log(newStep);
-        //     expect(updatedCandidate.currentInterviewStep).to.equal(newStep.name);
-        // });
     });
 });

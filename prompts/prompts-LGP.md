@@ -55,5 +55,6 @@ parece que la interfaz para la que tenemos que añadir las pruebas es la interfa
 
 16.- Verifica que la fase del candidato se actualiza correctamente en el backend mediante el endpoint PUT /candidate/:id. Para ello tendremos que comprobar que el canditao movido tiene ahora la fase correcta
 
-
 17.- Parece que en el test 'should move candidate card to new column and update phase' no está actualizando correctamente la fase del candidato, no se mueve la tarjeta correctamente
+
+18.- ten en cuenta que para mover la tarjeta tenemos que hacer click y no soltar hasta que estemos en la otra columna
