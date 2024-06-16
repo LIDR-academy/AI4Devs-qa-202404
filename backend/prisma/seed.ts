@@ -1,14 +1,26 @@
 import { PrismaClient } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 
 const prisma = new PrismaClient();
 
 async function main() {
+  // Delete all existing companies
+  await prisma.company.deleteMany();
+
   // Create Companies
-  const company1 = await prisma.company.create({
-    data: {
-      name: 'LTI',
-    },
-  });
+  try {
+    const company1 = await prisma.company.create({
+      data: {
+        name: "LTI"
+      }
+    });
+  } catch (error) {
+    if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
+      console.log("Attempted to create a company with a duplicate name.");
+    } else {
+      throw error; // Re-throw the error if it's not the one we're looking for
+    }
+  }
 
   // Create Interview Flows
   const interviewFlow1 = await prisma.interviewFlow.create({
