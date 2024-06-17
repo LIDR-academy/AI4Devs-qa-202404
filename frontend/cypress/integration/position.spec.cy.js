@@ -52,3 +52,27 @@ describe('Carga de la Página de Posiciones', () => {
   
 });
 
+describe('Cambio de Fase de un Candidato', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/positions/1');
+  });
+
+  it('Simula el arrastre de la tarjeta de candidato "John Doe"', () => {
+    cy.intercept('PUT', 'http://localhost:3010/candidates/1', (req) => {
+      req.reply((res) => {
+        res.send({
+          applicationId: 1,
+          currentInterviewStep: 3
+        });
+      });
+    }).as('updateCandidate');
+
+    cy.dragAndDrop('[data-rbd-draggable-id="1"]', '[data-rbd-droppable-id="1"]');
+
+    cy.get('[data-rbd-droppable-id="2"]').within(() => {
+      cy.get('.card-title').should('contain', 'John Doe');
+    });
+
+    cy.wait('@updateCandidate').its('response.statusCode').should('eq', 200);
+  });
+});
