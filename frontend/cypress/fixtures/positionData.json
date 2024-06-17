@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "title": "Senior Full-Stack Engineer",
+  "stages": [
+    {
+      "name": "Initial Screening",
+      "candidates": ["Carlos García"]
+    },
+    {
+      "name": "Technical Interview",
+      "candidates": ["John Doe", "Jane Smith"]
+    },
+    {
+      "name": "Manager Interview",
+      "candidates": []
+    }
+  ]
+}
